@@ -10,5 +10,8 @@
     <color name="gray">#A5A5A5</color>
     <color name="orange">#FFA500 </color>
     <color name="dark_gray">#292929</color>
+    <color name="blue_ray">#405260</color>
 
+    <color name="rose">#ED3F58</color>
+    <color name="white_holod">#E7EEFF</color>
 </resources>
