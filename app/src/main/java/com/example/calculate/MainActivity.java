@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private Integer first, second;
-    private Boolean isOperationClick;Y
+    private Boolean isOperationClick;
     private String Operation;
     private Integer Resalt;
 
