@@ -2,8 +2,10 @@ package com.example.calculate;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,12 +14,24 @@ public class MainActivity extends AppCompatActivity {
     private Boolean isOperationClick;
     private String Operation;
     private Integer Resalt;
+    private Button button;
+    private Button boot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.text_view);
+        button = findViewById(R.id.boot);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                String text = textView.getText().toString();
+                intent.putExtra("intent",text);
+                startActivity(intent);
+            }
+        });
     }
     public void onNumberClick(View view) {
         switch (view.getId()){
@@ -28,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_two:
                 setNumber("2");
                 break;
-
             case R.id.btn_three:
                 setNumber("3");
                 break;
@@ -96,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_dil:
                 Operation = "/";
                 first = Integer.parseInt(textView.getText().toString());
+
                 break;
 
             case R.id.btn_equal:
@@ -114,9 +128,10 @@ public class MainActivity extends AppCompatActivity {
                         Resalt = first / second;
                         break;
 
+
                 }
                 textView.setText(Resalt.toString());
-
+button.setAlpha(1);
         }
         isOperationClick = true;
     }
